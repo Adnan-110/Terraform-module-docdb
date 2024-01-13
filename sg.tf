@@ -1,6 +1,6 @@
 # Creates Security Group For Document DB
 
-resource "aws_security_group" "everything_allowed" {
+resource "aws_security_group" "allows_docdb" {
     name        = "roboshop-${var.ENV}-docdb-subnet-group"
     description = "roboshop-${var.ENV}-docdb-subnet-group"
 
