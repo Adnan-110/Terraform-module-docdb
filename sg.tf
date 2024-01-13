@@ -1,8 +1,8 @@
 # Creates Security Group For Document DB
 
 resource "aws_security_group" "allows_docdb" {
-    name        = "roboshop-${var.ENV}-docdb-subnet-group"
-    description = "roboshop-${var.ENV}-docdb-subnet-group"
+    name        = "roboshop-${var.ENV}-docdb-security-group"
+    description = "roboshop-${var.ENV}-docdb-security-group"
     vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID 
 
     ingress {
@@ -21,6 +21,6 @@ resource "aws_security_group" "allows_docdb" {
     }
 
     tags = {
-        Name = "roboshop-${var.ENV}-docdb-subnet-group"
+        Name = "roboshop-${var.ENV}-docdb-security-group"
     }
 }
