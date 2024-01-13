@@ -3,6 +3,7 @@
 resource "aws_security_group" "allows_docdb" {
     name        = "roboshop-${var.ENV}-docdb-subnet-group"
     description = "roboshop-${var.ENV}-docdb-subnet-group"
+    vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID 
 
     ingress {
         description = "Doc-DB From Private Network"
