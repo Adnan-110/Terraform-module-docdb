@@ -1,5 +1,4 @@
 # Provisions Document-DB Cluster
-
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "roboshop-${var.ENV}-docdb"
   engine                  = var.DOCDB_ENGINE
@@ -13,9 +12,7 @@ resource "aws_docdb_cluster" "docdb" {
   vpc_security_group_ids = [aws_security_group.allows_docdb.id]
 }
 
-
 # Creates a subnet-groups
-
 resource "aws_docdb_subnet_group" "docdb" {
   name       = "roboshop-${var.ENV}-docdb-subnet-group"
   subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS
