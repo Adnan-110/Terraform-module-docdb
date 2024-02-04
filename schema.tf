@@ -11,10 +11,8 @@ resource "null_resource" "schema" {
         ls -ltr
         cd mongodb-main
         ls -ltr
-        mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile /tmp/global-bundle.pem --username admin1 --password roboshop1 < catalogue.js
-        
-        mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile /tmp/global-bundle.pem --username ${local.DOCDB_USERNAME} --password ${local.DOCDB_PASSWORD} < users.js
-   
+        mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint} --sslCAFile /tmp/global-bundle.pem --username ${local.DOCDB_USERNAME} --password ${local.DOCDB_PASSWORD} < catalogue.js
+        mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint} --sslCAFile /tmp/global-bundle.pem --username ${local.DOCDB_USERNAME} --password ${local.DOCDB_PASSWORD} < users.js
     EOF
   }
 }
